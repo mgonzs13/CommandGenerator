@@ -75,10 +75,10 @@ def parse_objects(data):
 
 
 if __name__ == "__main__":
-    names_file_path = '../names/names.md'
-    locations_file_path = '../maps/location_names.md'
-    rooms_file_path = '../maps/room_names.md'
-    objects_file_path = '../objects/test.md'
+    names_file_path = 'files/names/names.md'
+    locations_file_path = 'files/maps/location_names.md'
+    rooms_file_path = 'files/maps/room_names.md'
+    objects_file_path = 'files/objects/test.md'
 
     names_data = read_data(names_file_path)
     names = parse_names(names_data)
@@ -151,18 +151,19 @@ if __name__ == "__main__":
                     qr.make(fit=True)
 
                     img = qr.make_image(fill_color="black", back_color="white")
+                    
                     # Create a drawing object
                     draw = ImageDraw.Draw(img)
-
+                    
                     # Load a font
                     font = ImageFont.truetype("Arial.ttf", 30)
 
                     # Calculate text size and position
-                    text_size = draw.textsize(c, font)
-                    if text_size[0] > img.size[0]:
+                    text_size = draw.textlength(c, font)
+                    if text_size > img.size[0]:
                         font = ImageFont.truetype("Arial.ttf", 15)
-                        text_size = draw.textsize(c, font)
-                    text_position = ((img.size[0] - text_size[0]) // 2, img.size[1] - text_size[1] - 10)
+                        text_size = draw.textlength(c, font)
+                    text_position = ((img.size[0] - text_size) // 2, img.size[1] - text_size - 10)
 
                     # Draw text on the image
                     draw.text(text_position, c, font=font, fill="black")
