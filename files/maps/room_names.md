@@ -3,4 +3,4 @@
 | living room |
 | kitchen     |
 | bedroom     |
-| bathroom    |
+| dining room |

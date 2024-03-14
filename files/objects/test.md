@@ -1,12 +1,15 @@
 | Objectname |
 | ---------- |
-| Apple      |
-| Orange     |
-| Banana     |
-| Chair      |
-| Table      |
-| Lamp       |
+| apple      |
+| orange     |
+| banana     |
 
-# Class Fruits, Fruit
+# Class fruits, fruit
 
-# Class Furniture, Household Item
+| Objectname |
+| ---------- |
+| glass      |
+| plate      |
+| spoon      |
+
+# Class dishes, dish
