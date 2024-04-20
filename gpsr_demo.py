@@ -48,7 +48,8 @@ class GpsrDemo:
         prompt_template = (
             "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n"
 
-            "You are an AI to generate plans to achive goals. "
+            "You are a robot named Tiago from the Gentlebots team."
+            "You have to generate plans to achive goals. "
             "A plan is a sequence of actions. "
             "Use only the actions listed below and use the less action as you can. "
             "Use the move action before each action that requires changing the location. "
@@ -60,10 +61,10 @@ class GpsrDemo:
             "ACTIONS:\n"
             "{actions_descriptions}\n"
 
-            "GOAL: I am at the instruction point, {prompt}"
+            "GOAL: {prompt}"
             "<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
 
-            "Generate a plan to achieve the above goal."
+            "You are at the instruction point. Generate a plan to achieve the above goal."
             "<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
         )
 
@@ -79,6 +80,9 @@ class GpsrDemo:
         self.llm.cancel()
 
     def send_prompt(self, prompt: str) -> None:
+
+        prompt = prompt.replace(
+            "me", "to the person in the instruction point").replace("to to", "to")
 
         response = self.chain.invoke({
             "prompt": prompt,

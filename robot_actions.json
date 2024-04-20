@@ -79,7 +79,7 @@
             "source_waypoint": "string",
             "destination_waypoint": "string"
         },
-        "description": "take or guide a person from a waypoint to another waypoint"
+        "description": "take, escort or guide a person from a waypoint to another waypoint"
     },
     {
         "name": "listen",
