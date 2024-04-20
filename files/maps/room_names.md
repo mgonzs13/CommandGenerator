@@ -1,6 +1,9 @@
-| room        |
+## Rooms
+
+| Name        |
 | ----------- |
-| living room |
-| kitchen     |
 | bedroom     |
-| dining room |
+| kitchen     |
+| office      |
+| living room |
+| corridor    |

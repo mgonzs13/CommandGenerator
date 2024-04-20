@@ -1,0 +1,50 @@
+[
+    {
+        "command": "tell me what is the thinnest snack on the bedside table",
+        "response": {
+            "reasoning": "To achieve this goal, we need to move to the bedside table and then find the snack on it. Since we don't know which snack is the thinnest, we'll count all snacks on the bedside table and then describe each one.",
+            "actions": [
+                {
+                    "move_to": {
+                        "source_waypoint": "instruction point",
+                        "destination_waypoint": "bedside table"
+                    }
+                },
+                {
+                    "find_object": {
+                        "object_description": "snack"
+                    }
+                },
+                {
+                    "count_object": {
+                        "object_type": "snack"
+                    }
+                },
+                {
+                    "describe_object": {
+                        "object": "each snack on the bedside table"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "command": "give me a soccer ball from the dresser",
+        "response": {
+            "reasoning": "To achieve the goal of getting a soccer ball from the dresser, we need to follow these steps:",
+            "actions": [
+                {
+                    "move_to": {
+                        "source_waypoint": "bedroom",
+                        "destination_waypoint": "dresser"
+                    }
+                },
+                {
+                    "find_object": {
+                        "object_description": "soccer ball"
+                    }
+                }
+            ]
+        }
+    }
+]
