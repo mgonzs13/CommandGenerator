@@ -127,8 +127,12 @@ if __name__ == "__main__":
     try:
         for _ in tqdm(range(10)):
             command = generator.generate_command_start(cmd_category="")
-            response = gpsr_demo.send_prompt(command)
-            gpsr_data.append({"command": command, "response": response})
+            response, prompt = gpsr_demo.send_prompt(command)
+            gpsr_data.append({
+                "command": command,
+                "prompt": prompt,
+                "response": response
+            })
 
     except KeyboardInterrupt:
         gpsr_demo.cancel()

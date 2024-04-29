@@ -25,6 +25,7 @@
 
 import json
 import rclpy
+from typing import Tuple
 from llama_ros.langchain import LlamaROS
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -63,7 +64,7 @@ class GpsrDemo:
             "GOAL: {prompt}\n\n"
 
             "### Instruction:\n"
-            "You are at the instruction point. Generate a plan to achieve the above goal.\n\n"
+            "You are at the instruction point. Generate a plan to achieve your goal.\n\n"
 
             "### Response:\n"
         )
@@ -79,7 +80,7 @@ class GpsrDemo:
     def cancel(self) -> None:
         self.llm.cancel()
 
-    def send_prompt(self, prompt: str) -> None:
+    def send_prompt(self, prompt: str) -> Tuple[dict | str]:
 
         prompt = prompt.replace(
             "me", "to the person in the instruction point").replace("to to", "to")
@@ -91,7 +92,7 @@ class GpsrDemo:
             "waypoints": self.waypoints
         })
 
-        return json.loads(response)
+        return json.loads(response), prompt
 
     def load_waypoints(self) -> None:
         self.waypoints = ""
