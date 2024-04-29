@@ -4,7 +4,7 @@
         "args": {
             "object_description": "string"
         },
-        "description": "find or identify or search for a described object in a waypoint"
+        "description": "find, identify, look for, or search for a described object in a waypoint"
     },
     {
         "name": "count_object",
@@ -16,43 +16,43 @@
     {
         "name": "describe_object",
         "args": {
-            "object": "string"
+            "object_to_describe": "string"
         },
         "description": "describe an object in a waypoint"
     },
     {
         "name": "pick_object",
         "args": {
-            "object": "string"
+            "object_to_pick": "string"
         },
-        "description": "pick an object in a waypoint"
+        "description": "get, fetch, grasp, pick, or take an object in a waypoint"
     },
     {
         "name": "place_object",
         "args": {
-            "object": "string"
+            "object_to_place": "string"
         },
-        "description": "place an object in a waypoint"
+        "description": "place, or put an object in a waypoint"
     },
     {
         "name": "offer_object",
         "args": {
-            "object": "string",
+            "object_to_offer": "string",
             "person": "string"
         },
-        "description": "offer or bring an object to a person in a waypoint"
+        "description": "deliver, offer, or bring an object to a person in a waypoint"
     },
     {
         "name": "find_person",
         "args": {
             "person_description": "string"
         },
-        "description": "find or identify or search for a described person in a waypoint"
+        "description": "find, identify, look for, or search for a described person in a waypoint"
     },
     {
         "name": "describe_person",
         "args": {
-            "person": "string"
+            "person_to_describe": "string"
         },
         "description": "describe a person in a waypoint"
     },
@@ -68,33 +68,33 @@
     {
         "name": "look_to",
         "args": {
-            "person": "string"
+            "person_to_look": "string"
         },
         "description": "look to a person in a waypoint"
     },
     {
         "name": "guide_person",
         "args": {
-            "person": "string",
+            "person_to_guide": "string",
             "source_waypoint": "string",
             "destination_waypoint": "string"
         },
-        "description": "take, escort or guide a person from a waypoint to another waypoint"
+        "description": "take, escort, lead, or guide a person from a waypoint to another waypoint"
     },
     {
         "name": "listen",
         "args": {
-            "person": "string"
+            "person_to_listen": "string"
         },
         "description": "listen to a person in a waypoint"
     },
     {
         "name": "speak",
         "args": {
-            "person": "string",
-            "text": "string"
+            "person_to_speak": "string",
+            "text_to_say": "string"
         },
-        "description": "speak or tell something to a person in a waypoint"
+        "description": "speak, or tell something to a person in a waypoint"
     },
     {
         "name": "move_to",
