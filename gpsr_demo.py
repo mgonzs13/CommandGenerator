@@ -82,14 +82,16 @@ class GpsrDemo:
 
     def send_prompt(self, prompt: str) -> Tuple[dict | str]:
 
+        prompt = prompt + " "
         prompt = prompt.replace(
-            "me", "to the person in the instruction point").replace("to to", "to")
+            " me ", " to the person in the instruction point ").replace("to to", "to")
         prompt = prompt.replace("them", "him")
+        prompt = prompt.strip()
 
         response = self.chain.invoke({
             "prompt": prompt,
-            "actions_descriptions": self.actions_descriptions,
-            "waypoints": self.waypoints
+            "actions_descriptions": self.actions_descriptions[:-1],
+            "waypoints": self.waypoints[:-1]
         })
 
         return json.loads(response), prompt
