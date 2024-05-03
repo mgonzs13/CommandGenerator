@@ -6,6 +6,7 @@ import warnings
 from tqdm import tqdm
 from gpsr_demo import GpsrDemo
 from gpsr_commands import CommandGenerator
+# from egpsr_commands import EgpsrCommandGenerator
 
 
 def read_data(file_path):
@@ -118,6 +119,7 @@ if __name__ == "__main__":
         object_categories_plural,
         object_categories_singular
     )
+    # egpsr_generator = EgpsrCommandGenerator(generator)
 
     gpsr_data = []
 
@@ -126,6 +128,7 @@ if __name__ == "__main__":
 
     try:
         for _ in tqdm(range(10)):
+            # command = egpsr_generator.generate_setup()
             command = generator.generate_command_start(cmd_category="")
             response, prompt = gpsr_demo.send_prompt(command)
             gpsr_data.append({

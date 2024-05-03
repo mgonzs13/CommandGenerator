@@ -47,24 +47,20 @@ class GpsrDemo:
 
         # create a prompt template
         prompt_template = (
-            "### System:\n"
-            "You are a robot named Tiago from the Gentlebots team."
+            "You are a robot named Tiago from the Gentlebots team. "
             "You have to generate plans to achive goals. "
             "A plan is a sequence of actions. "
             "Use only the actions listed below and use the less action as you can. "
-            "Use the move action before each action that requires changing the location. "
-            "Reason about the goal and the actions explaining how to use them.\n\n"
+            "Use the move action before each action that requires changing the location.\n\n"
 
             "WAYPOINTS:\n"
             "{waypoints}\n\n"
 
             "ACTIONS:\n"
-            "{actions_descriptions}\n"
-
-            "GOAL: {prompt}\n\n"
+            "{actions_descriptions}\n\n"
 
             "### Instruction:\n"
-            "You are at the instruction point. Generate a plan to achieve your goal.\n\n"
+            "You are at the instruction point, generate a plan to achieve your goal: {prompt}\n\n"
 
             "### Response:\n"
         )
@@ -124,23 +120,22 @@ class GpsrDemo:
             action_definitions[a["name"]] = {
                 "type": "object",
                 "properties": {
-                        a["name"]: {
-                            "type": "object",
-                            "properties": properties,
-                            "required": required
-                        }
-                }
+                    "explaination_of_next_actions": {
+                        "type": "string"
+                    },
+                    a["name"]: {
+                        "type": "object",
+                        "properties": properties,
+                        "required": required
+                    }
+                },
+                "required": [a["name"], "explaination_of_next_actions"]
             }
 
         self.grammar_schema = json.dumps({
             "definitions": action_definitions,
             "type": "object",
             "properties": {
-
-                "reasoning": {
-                    "type": "string"
-                },
-
                 "actions": {
                     "type": "array",
                     "items": {
@@ -151,7 +146,7 @@ class GpsrDemo:
                     "maxItems": 100
                 },
             },
-            "required": ["reasoning", "actions"]
+            "required": ["actions"]
         })
 
 
